@@ -49,9 +49,14 @@ int main(int argc, char** argv){
   }
   movieFile.close();
 
-  movies.printPreOrder();
-
-  movies.bestMovie(argv[3]);
+  if (flag) {
+    movies.printPreOrder();
+    movies.bestMovie(argv[3]);
+  }
+  else {
+    string c = "™";
+    cout << (int)c[0] << endl;
+  }
 
   return 0;
 }
