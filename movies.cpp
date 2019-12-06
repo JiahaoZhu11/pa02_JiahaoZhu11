@@ -117,26 +117,27 @@ int Movies::count(Node *n) const {
 // Node* n: the node to start with (for a recursive call)
 // Whenever you call this method from somewhere else, pass it
 // the root node as "n"
-void Movies::getMoviesFor(string prefix, Node* n, vector<Node*> movies) const{;
+vector<Movies::Node*> Movies::getMoviesFor(string prefix, Node* n) const {
+    vector<Node*> movies;
     if (n) {
         for (int i = 0; i < n->name.length() && i < prefix.length(); i++) {
             if (n->name[i] > prefix[i]) {
-                return getMoviesFor(prefix, n->left, movies);
+                return getMoviesFor(prefix, n->left);
             }
             else if (n->name[i] < prefix[i]) {
-                return getMoviesFor(prefix, n->right, movies);
+                return getMoviesFor(prefix, n->right);
             }
         }
         if (prefix.length() <= n->name.length()) {
             movies.push_back(n);
         }
     }
+    return movies;
 }
 
 // returns true if value is in the tree; false if not
 void Movies::bestMovie(string prefix) const {
-    vector<Node*> movies;
-    getMoviesFor(prefix, root, movies);
+    vector<Node*> movies = getMoviesFor(prefix, root);
     if (!movies.empty()) {
         Node* best = movies[0];
         for (int i = 1; i < movies.size(); i++) {

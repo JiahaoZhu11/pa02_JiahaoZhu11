@@ -34,7 +34,7 @@ class Movies {
     Node *root;
 
     //recursive helper functions
-    void getMoviesFor(string prefix, Node* n, vector<Node*> movies) const; //returns the node for a given name or NULL if none exists
+    vector<Node*> getMoviesFor(string prefix, Node* n) const; //returns the node for a given name or NULL if none exists
     void clear(Node *n); // for destructor
     bool insert(string name, double rating, Node *n); // note overloading names for simplicity
     void printPreOrder(Node *n, int depth) const;
