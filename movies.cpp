@@ -41,7 +41,9 @@ bool Movies::insert(string name, double rating, Node *n) {
     //if (name == n->name)
 	//return false;
     for (int i = 0; i < n->name.length() && i < name.length(); i++) {
-        if (name[i] == " " %%&& n->name[i] == " ")
+        if (&name[i] == " " && &n->name[i] == " ") {
+            continue;
+        }
         if (name[i] < n->name[i]) {
 	        if (n->left)
 	            return insert(name, rating, n->left);
@@ -119,7 +121,7 @@ Movies::Node* Movies::getNodeFor(string prefix, Node* n) const{;
     Node* movie = NULL;
     if (n) {
         for (int i = 0; i < n->name.length() && i < prefix.length(); i++) {
-            if (n->name[i] == " " && prefix[i] == " ") {
+            if (&n->name[i] == " " && &prefix[i] == " ") {
                 continue;
             }
             else if (n->name[i] > prefix[i]) {
