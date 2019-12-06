@@ -138,7 +138,7 @@ Movies::Node* Movies::getNodeFor(string prefix, Node* n) const{;
 void Movies::bestMovie(string prefix) const {
     Node* movie = getNodeFor(prefix,root);
     if (movie) {
-        cout << endl << "Best movie is" << movie->name << " with rating " << movie->rating << endl;
+        cout << endl << "Best movie is " << movie->name << " with rating " << movie->rating << endl;
     }
     else {
         cout << endl << "No movie with the prefix" << endl;
