@@ -44,7 +44,7 @@ bool Movies::insert(string name, double rating, Node *n) {
         if ((int)name[i] == 32 && (int)n->name[i] == 32) {
             continue;
         }
-        if (name[i] < n->name[i] && (int)name[i] < 0) {
+        if (name[i] < n->name[i] && (int)name[i] > 0) {
 	        if (n->left)
 	            return insert(name, rating, n->left);
 	        else {
