@@ -5,6 +5,7 @@
 #define MOVIES_H
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -33,7 +34,7 @@ class Movies {
     Node *root;
 
     //recursive helper functions
-    Node* getNodeFor(string name, Node* n) const; //returns the node for a given name or NULL if none exists
+    void getMoviesFor(string prefix, Node* n, vector<Node*> movies) const; //returns the node for a given name or NULL if none exists
     void clear(Node *n); // for destructor
     bool insert(string name, double rating, Node *n); // note overloading names for simplicity
     void printPreOrder(Node *n, int depth) const;
