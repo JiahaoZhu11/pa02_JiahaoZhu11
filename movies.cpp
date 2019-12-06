@@ -44,7 +44,7 @@ bool Movies::insert(string name, double rating, Node *n) {
         if ((int)name[i] == 32 && (int)n->name[i] == 32) {
             continue;
         }
-        if (name[i] < n->name[i] && (int)name[i] != -30) {
+        if (name[i] < n->name[i] && (int)name[i] < 0) {
 	        if (n->left)
 	            return insert(name, rating, n->left);
 	        else {
@@ -53,7 +53,7 @@ bool Movies::insert(string name, double rating, Node *n) {
 	            return true;
 	        }
         }
-        else if (name[i] > n->name[i] || (int)name[i] == -30){
+        else if (name[i] > n->name[i] || (int)name[i] < 0){
 	        if (n->right)
 	            return insert(name, rating, n->right);
         	else {
@@ -146,9 +146,9 @@ void Movies::bestMovie(string prefix) const {
     if (movie) {
         cout << endl << "Best movie is " << movie->name << " with rating " << movie->rating << endl;
     }
-//    else {
-//        cout << endl << "No movie with the prefix" << endl;
-//    }
+    else {
+        cout << endl;
+    }
 }
 
 /*

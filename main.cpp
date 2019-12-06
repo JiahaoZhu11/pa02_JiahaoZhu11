@@ -54,7 +54,7 @@ int main(int argc, char** argv){
     movies.bestMovie(argv[3]);
   }
   else {
-    string c = "™";
+    string c = "¬";
     cout << (int)c[0] << endl;
   }
 
